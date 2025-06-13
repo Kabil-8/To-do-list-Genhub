@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart To-Do</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <h1 id="mainHeading">📝 Smart To-Do</h1>
+
+    <div class="task-input">
+      <input type="text" id="taskInput" placeholder="Task name" />
+      <input type="text" id="descInput" placeholder="Description (optional)" />
+      <input type="datetime-local" id="endDate" />
+      <select id="priorityInput">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+      <div class="btn-group">
+        <button id="voiceBtn">🎤 Speak</button>
+        <button id="addBtn">➕ Add</button>
+      </div>
+    </div>
+
+    <div class="controls">
+      <select id="filter">
+        <option value="all">All</option>
+        <option value="completed">Completed</option>
+        <option value="pending">Pending</option>
+      </select>
+      <select id="sort">
+        <option value="none">Sort by</option>
+        <option value="date">End Date</option>
+        <option value="priority">Priority</option>
+      </select>
+      <button class="dark-mode-btn" id="toggleDark">🌙</button>
+    </div>
+
+    <div class="task-list-wrapper">
+      <ul id="taskList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
