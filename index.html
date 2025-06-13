@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="app-container">
-    <h1 id="mainHeading">📝 Smart To-Do</h1>
+    <h1 id="mainHeading">📝 To-Do list Genhub</h1>
 
     <div class="task-input">
       <input type="text" id="taskInput" placeholder="Task name" />
@@ -19,9 +19,9 @@
         <option value="Medium">Medium</option>
         <option value="High">High</option>
       </select>
-      <div class="btn-group">
-        <button id="voiceBtn">🎤 Speak</button>
-        <button id="addBtn">➕ Add</button>
+      <div class="task-btns">
+        <button id="voiceBtn">🎤 Speak Task</button>
+        <button id="addBtn">Add</button>
       </div>
     </div>
 
@@ -41,6 +41,14 @@
 
     <div class="task-list-wrapper">
       <ul id="taskList"></ul>
+    </div>
+  </div>
+
+  <!-- Custom Popup -->
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <p id="popup-message">Message here</p>
+      <button onclick="closePopup()">OK</button>
     </div>
   </div>
 

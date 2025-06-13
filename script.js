@@ -28,13 +28,24 @@ function listenForTask() {
   };
 }
 
+function showPopup(message) {
+  const popup = document.getElementById("popup");
+  const msg = document.getElementById("popup-message");
+  msg.textContent = message;
+  popup.classList.remove("hidden");
+}
+
+function closePopup() {
+  document.getElementById("popup").classList.add("hidden");
+}
+
 function addTask() {
   const name = taskInput.value.trim();
   const desc = descInput.value.trim();
   const end = endDateInput.value;
   const priority = priorityInput.value;
   if (!name || !end) {
-    alert("Task name and end date are required.");
+    showPopup("Task name and end date are required.");
     return;
   }
 
@@ -99,8 +110,7 @@ function toggleComplete(id) {
 
 function deleteTask(id) {
   const t = tasks.find(t => t.id === id);
-  const confirmDelete = confirm(`Delete task \"${t.name}\"?`);
-  if (!confirmDelete) return;
+  showPopup(`Are you sure to delete '${t.name}'?`);
   tasks = tasks.filter(t => t.id !== id);
   speak(`Task ${t.name} deleted.`);
   renderTasks();
@@ -111,7 +121,7 @@ function scheduleReminder(task) {
   if (time > 0) {
     setTimeout(() => {
       speak(`Reminder: Task ${task.name} is due in 1 minute.`);
-      alert(`Reminder: Task '${task.name}' is due in 1 minute!`);
+      showPopup(`Reminder: Task '${task.name}' is due in 1 minute!`);
     }, time);
   }
 }
